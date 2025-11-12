@@ -150,3 +150,58 @@ using namespace std;
 //     reverseArray(arr, arr + m-1);
 //     for (int i = 0; i < m; i++) cout << arr[i] << " ";
 // }
+// //Problem 11
+// int main() {
+//    int n[]={78,95,85,62,88};
+//
+//   int *largest=n;
+//   int *seond_largest=n;
+//   int *third_largest=n;
+//  for(int i=0;i<5;i++) {
+//      if (*(n+i)>*(largest)) {
+//          third_largest=seond_largest;
+//          seond_largest=largest;
+//          largest=n+i;
+//      }
+//      else if (*(n+i)>*(seond_largest)&&*(n+i)!=*largest) {
+//          third_largest=seond_largest;
+//          seond_largest=n+i;;
+//      }
+//      else if (*(n+i)>*(third_largest)&&*(n+i)!=*seond_largest) third_largest=n+i;
+//
+//  }
+//
+//     cout<<*third_largest;
+//     cout<<endl;
+//     cout<<*seond_largest;
+//     cout<<endl;
+//     cout<<*largest;
+//     cout<<endl;
+//
+// return 0;
+// }
+
+int* countDigits(const int& number) {
+    int* counts = new int[10]{0};
+    int num = number;
+    while (num > 0) {
+        int digit = num % 10;
+        counts[digit]++;
+        num /= 10;
+    }
+
+    return counts;
+}
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+
+    int* counts = countDigits(num);
+
+    for (int i = 0; i < 10; i++) {
+        cout << "counts[" << i << "] = " << counts[i] << endl;
+    }
+    return 0;
+}
